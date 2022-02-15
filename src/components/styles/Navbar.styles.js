@@ -27,11 +27,14 @@ export const NavItemContainer = styled.ul`
 
 export const NavItem = styled.li`
   margin-left: 20px;
+  list-style: none;
 `;
 
 export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: #000;
 
   &:hover {
     color: #777;
