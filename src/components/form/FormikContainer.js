@@ -27,7 +27,7 @@ const FormikContainer = () => {
     gender: '',
     radioGender: '',
     checkboxOption: [],
-    birthDate: '',
+    birthDate: new Date(),
     description: '',
   };
   const validationSchema = Yup.object({
@@ -41,7 +41,13 @@ const FormikContainer = () => {
     description: Yup.string().required('Please enter your description!'),
   });
   onsubmit = (values) => {
-    console.log('Form Data: ', values);
+    const { birthDate, ...others } = values;
+    let stringBirth = birthDate.toLocaleString();
+    const formData = {
+      stringBirth,
+      ...others,
+    };
+    console.log('formData ', formData);
   };
 
   return (
