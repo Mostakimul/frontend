@@ -32,7 +32,9 @@ const FormikContainer = () => {
   };
   const validationSchema = Yup.object({
     name: Yup.string().required('Please enter your name!'),
-    email: Yup.string().required('Please enter your email!'),
+    email: Yup.string()
+      .email('Invalid email format!')
+      .required('Please enter your email!'),
     password: Yup.string().required('Please enter your password!'),
     gender: Yup.string().required('Please select your gender!'),
     radioGender: Yup.string().required('Please select your radio gender!'),
@@ -107,7 +109,9 @@ const FormikContainer = () => {
               rows="8"
               placeholder="Enter your description"
             />
-            <ButtonSubmit type="submit">Submit</ButtonSubmit>
+            <ButtonSubmit type="submit" disabled={!formik.isValid}>
+              Submit
+            </ButtonSubmit>
           </FormFieldContainer>
         </Form>
       )}
