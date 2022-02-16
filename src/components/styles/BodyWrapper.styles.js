@@ -17,6 +17,5 @@ export const BodyWrapper = styled.div`
     rgba(81, 94, 190, 1),
     rgba(31, 148, 161, 1)
   );
-  height: 100vh;
   padding: 10px 0;
 `;

@@ -7,8 +7,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, input, button, select, textarea, option {
     font-family: 'Poppins', sans-serif;
+    -webkit-font-family: 'Poppins', sans-serif;
+    -moz-font-family: 'Poppins', sans-serif;
+    -ms-font-family: 'Poppins', sans-serif;
+    -o-font-family: 'Poppins', sans-serif;
   }
 `;
 
