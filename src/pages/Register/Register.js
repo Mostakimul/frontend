@@ -1,12 +1,17 @@
 import { Form, Formik } from 'formik';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import FormikControl from '../../components/form/FormikControl';
 import { Container } from '../../components/styles/Container.styles';
-import { H2, P } from '../../components/styles/Element.styles';
+import { H2, P, Spinner } from '../../components/styles/Element.styles';
 import {
   ButtonSubmit,
   FormFieldContainer,
 } from '../../components/styles/Form.styles';
+import { register, reset } from '../../features/auth/authSlice';
 
 const Register = () => {
   // initial values
@@ -27,10 +32,41 @@ const Register = () => {
       .oneOf([Yup.ref('password'), ''], 'Password must match!')
       .required('Please enter confirm password!'),
   });
+
+  // navigate and dispatch
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth,
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   // submit function
   onsubmit = (values) => {
-    console.log('formData ', values);
+    const userData = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    dispatch(register(userData));
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <Container>
       <H2>Register</H2>
