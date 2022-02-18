@@ -1,29 +1,29 @@
-import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
+import styled from 'styled-components';
 
 export const FormFieldContainer = styled.div`
   background: rgba(255, 255, 255, 0.8);
-  padding: 15px 10px;
-  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
   width: 70%;
   margin: 0 auto;
   text-align: left;
 `;
 
 export const SingleFieldConatiner = styled.div`
-  margin: 10px 0;
+  margin: 1rem 0;
 `;
 
 export const Label = styled.label`
   color: rgba(0, 0, 0, 0.75);
-  margin: 0 5px;
+  margin: 0 0.5rem;
   display: inline-block;
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
-  border-radius: 10px;
+  border-radius: 1rem;
   border: 0;
-  padding: 8px;
+  padding: 0.8rem;
 `;
 
 export const Input = styled.input`

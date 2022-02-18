@@ -1,9 +1,9 @@
-import FormikContainer from '../../components/form/FormikContainer';
 import { Container } from '../../components/styles/Container.styles';
+import Register from '../Register/Register';
 const Dashboard = () => {
   return (
     <Container>
-      <FormikContainer />
+      <Register />
     </Container>
   );
 };
