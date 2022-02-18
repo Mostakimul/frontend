@@ -7,6 +7,7 @@ export const H2 = styled.h2`
 
 export const P = styled.p`
   font-size: 1.6rem;
+  margin: 0.5rem 0;
   color: rgba(255, 255, 255, 0.8);
 `;
 

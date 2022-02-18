@@ -15,6 +15,7 @@ export const SingleFieldConatiner = styled.div`
 `;
 
 export const Label = styled.label`
+  font-size: 1.6rem;
   color: rgba(0, 0, 0, 0.75);
   margin: 0 0.5rem;
   display: inline-block;
@@ -104,10 +105,15 @@ export const ButtonSubmit = styled.button`
   border-radius: 10px;
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.8);
   background-color: aliceblue;
+  color: rgba(0, 0, 0, 0.8);
   padding: 7px 25px;
   margin: 10px 0;
   cursor: pointer;
   transition: all 0.5s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &:hover {
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.9);
