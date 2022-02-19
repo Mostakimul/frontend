@@ -12,16 +12,14 @@ const TaskForm = () => {
   const dispatch = useDispatch();
   // showing toast
   const { isError, isSuccess, message } = useSelector((state) => state.tasks);
+
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
-
-    if (isSuccess) {
-      toast.success('Task created successfully!');
-    }
-
-    dispatch(reset());
+    return () => {
+      dispatch(reset());
+    };
   }, [isError, isSuccess, message, dispatch]);
 
   // initial values
@@ -35,6 +33,11 @@ const TaskForm = () => {
   // after submitting
   onsubmit = (values, { resetForm, setSubmitting }) => {
     dispatch(createTask(values));
+
+    if (isSuccess) {
+      toast.success('Task created successfully!');
+    }
+
     setSubmitting(false);
     resetForm(true);
   };
