@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import styled, { keyframes } from 'styled-components';
 
 export const H2 = styled.h2`
@@ -38,4 +39,18 @@ export const Spinner = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 50%;
+`;
+
+// tostify customization
+
+export const StyledContainer = styled(ToastContainer)`
+  // https://styled-components.com/docs/faqs#how-can-i-override-styles-with-higher-specificity
+  /* &&&.Toastify__toast-container {}
+  .Toastify__toast {} */
+  .Toastify__toast-body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  /* .Toastify__progress-bar {} */
 `;
