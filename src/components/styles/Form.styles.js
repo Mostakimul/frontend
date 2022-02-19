@@ -103,7 +103,7 @@ export const FormErrorText = styled.p`
 export const ButtonSubmit = styled.button`
   border: 0;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
   color: rgba(0, 0, 0, 0.8);
   padding: 7px 25px;
@@ -112,6 +112,7 @@ export const ButtonSubmit = styled.button`
   transition: all 0.5s;
 
   &:disabled {
+    color: rgba(0, 0, 0, 0.2);
     cursor: not-allowed;
   }
 
