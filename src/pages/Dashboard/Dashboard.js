@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container } from '../../components/styles/Container.styles';
 import { H2, P } from '../../components/styles/Element.styles';
 import TaskForm from '../../components/TaskForm/TaskForm';
+import Tasks from '../../components/Tasks/Tasks';
 import { getTasks, reset } from '../../features/task/taskSliece';
 
 const Dashboard = () => {
@@ -35,6 +36,13 @@ const Dashboard = () => {
       <H2>Task Dashboard</H2>
       <P>Welcome {user && user.name}</P>
       <TaskForm />
+      {tasks.length > 0 ? (
+        <>
+          <Tasks tasks={tasks} />
+        </>
+      ) : (
+        <P>You do not have any tasks!</P>
+      )}
     </Container>
   );
 };

@@ -1,12 +1,15 @@
 import { Form, Formik } from 'formik';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import { createTask, reset } from '../../features/task/taskSliece';
+import { createTask } from '../../features/task/taskSliece';
 import FormikControl from '../form/FormikControl';
-import { P } from '../styles/Element.styles';
-import { ButtonSubmit, FormFieldContainer } from '../styles/Form.styles';
+import {
+  ButtonSubmit,
+  FormFieldContainer,
+  FormTitle,
+} from '../styles/Form.styles';
 
 const TaskForm = () => {
   const dispatch = useDispatch();
@@ -17,10 +20,7 @@ const TaskForm = () => {
     if (isError) {
       toast.error(message);
     }
-    return () => {
-      dispatch(reset());
-    };
-  }, [isError, isSuccess, message, dispatch]);
+  }, [isError, message]);
 
   // initial values
   const initialValues = {
@@ -44,7 +44,6 @@ const TaskForm = () => {
 
   return (
     <>
-      <P>Your Tasks</P>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -53,10 +52,10 @@ const TaskForm = () => {
         {(formik) => (
           <Form>
             <FormFieldContainer>
+              <FormTitle>Task Form</FormTitle>
               <FormikControl
                 control="input"
                 type="text"
-                label="Task"
                 name="task"
                 placeholder="Enter your task"
               />
