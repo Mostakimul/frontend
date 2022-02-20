@@ -2,7 +2,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { SingleTaskContainer } from '../styles/Container.styles';
 import { Button, H4, P } from '../styles/Element.styles';
 
-const Task = ({ task }) => {
+const Task = ({ task, handleDelete }) => {
   return (
     <SingleTaskContainer>
       <H4 fontSize={'1.5rem'} color={'rgba(0,0,0,0.8)'}>
@@ -11,7 +11,7 @@ const Task = ({ task }) => {
       <P fontSize={'1.4rem'} color={'rgba(0,0,0,0.8)'}>
         {new Date(task.createdAt).toLocaleString()}
       </P>
-      <Button>
+      <Button onClick={() => handleDelete(task._id)}>
         <FaTrashAlt size={14} />
       </Button>
     </SingleTaskContainer>
