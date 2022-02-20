@@ -120,3 +120,11 @@ export const ButtonSubmit = styled.button`
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.9);
   }
 `;
+
+export const FormTitle = styled.h3`
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+`;

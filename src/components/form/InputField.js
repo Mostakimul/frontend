@@ -10,7 +10,7 @@ const InputField = (props) => {
   const { label, name, ...rest } = props;
   return (
     <SingleFieldConatiner>
-      <Label htmlFor={name}>{label} :</Label>
+      {label && <Label htmlFor={name}>{label}</Label>}
       <Field as={Input} id={name} name={name} {...rest} />
       <ErrorMessage name={name} component={FormErrorText} />
     </SingleFieldConatiner>
